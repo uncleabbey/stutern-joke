@@ -41,23 +41,11 @@ const fetchData = (term) => {
       const data = JSON.parse(body);
       const { results } = data;
       if (results.length === 0) {
-        console.log(
-          "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-        );
         console.log("Sorry, no jokes were found for the search term");
-        console.log(
-          "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-        );
         return;
       }
       const joke = getRandom(results);
-      console.log(
-          "+++++++++++++++++++++Your Jokes+++++++++++++++++++++++++++++++++++++++"
-        );
         console.log(joke.joke);
-        console.log(
-            "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-          );
       if (fs.existsSync("./jokes.txt")) {
         fs.readFile(`${__dirname}/jokes.txt`, (err, content) => {
           if (err) throw err;
